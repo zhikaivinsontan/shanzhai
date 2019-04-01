@@ -12,7 +12,7 @@ if(isset($_POST['loginButton'])) {
 		header("Location: index.php");
 	}
 }
-	
+
 
 
 ?>

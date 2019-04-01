@@ -92,16 +92,6 @@ include("includes/login-handler.php");
 
 
 
-
-
-
-
-
-
-
-
-
-
   <form id="registerForm" class="" action="register.php" method="post">
     <h2>Register Today!</h2>
     <p>

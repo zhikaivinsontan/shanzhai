@@ -32,9 +32,13 @@
 			$this->validateEmail($em,$em2);
 			$this->validatePassword($pw,$pw2);
 
+echo $this->errorArray;
+
 			if(empty($this->errorArray) == true) {
+				echo "1";
 				return $this->insertUserDetails($un,$fn,$ln,$em,$pw);
 			} else {
+
 				return false;
 			}
 		}
@@ -100,10 +104,11 @@
 				return;
 			}
 
+			/*
 			if (!filter_var($em,FILTER_VALIDATE_EMAIL)) {
 				array_push($this->errorArray, "Email is invalid");
 				return;
-			}
+			}*/
 
 
 		}
