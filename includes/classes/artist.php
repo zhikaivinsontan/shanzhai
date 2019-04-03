@@ -14,6 +14,30 @@
 			return $artist['name'];
 		}
 
+		public function getSongs() {
+
+			$songQuery = mysqli_query($this->con,"SELECT * FROM songs WHERE artist='$this->id' ORDER BY plays ASC");
+			
+			$john = array();
+			while ($row = mysqli_fetch_array($songQuery)) {
+				array_push($john,$row['id']);
+			}
+			
+			return $john;
+		}
+
+		public function getAlbums() {
+			$songQuery = mysqli_query($this->con,"SELECT * FROM albums WHERE artist='$this->id'");
+
+			$john = array();
+			while ($row = mysqli_fetch_array($songQuery)) {
+				array_push($john,$row['id']);
+			}
+			
+			return $john;
+		}
+
+
 
 	}
 

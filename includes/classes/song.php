@@ -29,6 +29,10 @@
 
 		}
 
+		public function getId() {
+			return $this->id;
+		}
+
 		public function getTitle() {
 			return $this->title;
 		}

@@ -1,5 +1,0 @@
-<button><img src="https://img.icons8.com/wired/64/000000/shuffle.png"></button>
-			<button><img src="https://img.icons8.com/dotty/80/000000/back.png"></button>
-			<button class="controlButton"><img src="https://img.icons8.com/dotty/80/000000/play.png"></button>
-			<button><img src="https://img.icons8.com/dotty/80/000000/forward.png"></button>
-			<button><img src="https://img.icons8.com/dotty/80/000000/repeat.png"></button>

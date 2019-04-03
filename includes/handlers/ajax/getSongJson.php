@@ -32,7 +32,15 @@ if(isset($_POST['albumId'])) {
 	echo json_encode($resultArray);
 }
 
+if(isset($_POST['artistIdSongs'])) {
+	$artistId = $_POST['artistIdSongs'];
 
+	$query = mysqli_query($con,"SELECT * FROM songs WHERE id='$artistId'");
+
+	$resultArray = mysqli_fetch_array($query);
+
+	echo json_encode($resultArray);
+}
 
 
 

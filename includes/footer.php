@@ -5,7 +5,7 @@
 	<nav class="navBar">
 		
 			<span class="logo" onclick="openPage('index.php')">
-			<img src="https://img.icons8.com/wired/64/000000/mountain.png" alt="shanzhai">
+			<img src="https://img.icons8.com/wired/64/000000/mountain.png" alt="shanzhai"> Home
 			</span>
 
 		<div class="group">
@@ -17,23 +17,22 @@
 
 		<div class="group">
 			<div class="navItem">
-				<a href="search.php" class="navItemLink">Browse</a>
-
+				<span onclick="openPage('index.php')">
+				Browse
+				</span>
 			</div>
 			<div class="navItem">
-				<a href="search.php" class="navItemLink">Your Music</a>
+				<span onclick="openPage('index.php')">
+				Your music
+				</span>
 			</div>
-			<div class="navItem">
-				<a href="search.php" class="navItemLink">Reece Kenney</a>
-			</div>
-
+			
 
 		</div>
 
 	</nav>
 </div>
 </div>
-
 
 
 <?php
@@ -134,7 +133,6 @@ $jsonArray = json_encode($resultArray);
 		//update the count in the database
 		if (audioElement.audio.currentTime == 0) {
 			$.post("includes/handlers/ajax/updatePlays.php",{ songId: audioElement.currentlyPlaying.id }, function(data) {
-				
 			});
 		}
 
@@ -142,9 +140,6 @@ $jsonArray = json_encode($resultArray);
 		$(".controlButton.pause").show();
 		audioElement.play();
 	}
-
-
-
 
 	function nextSong() {
 		if (repeat == true) {
@@ -163,27 +158,19 @@ $jsonArray = json_encode($resultArray);
 		setTrack(trackToPlay,currentPlayList,true);
 
 		playSong();
-		
 	}
 
 
 	function setTrack(trackId, newPlaylist,play) {
 
 		$.post("includes/handlers/ajax/getSongJson.php",{ songId: trackId }, function(data) {
-			//console.log(data);
-
+			
 			currentIndex = newPlaylist.indexOf(trackId);
-			
 			var track = JSON.parse(data);
-
 			$(".trackName span").text(track.title);
-
-			
+			currentSinger = track.artist;
 			$.post("includes/handlers/ajax/getSongJson.php",{ artistId: track.artist }, function(data) {
 				var artist = JSON.parse(data);
-				
-				//console.log(artist);
-
 				$(".artistName span").text( artist.name );
 
 			});
@@ -191,8 +178,6 @@ $jsonArray = json_encode($resultArray);
 			
 			$.post("includes/handlers/ajax/getSongJson.php",{ albumId: track.album }, function(data) {
 				var album = JSON.parse(data);
-				// console.log(album.artworkPath);
-
 				$(".albumLink img").attr("src",album.artworkPath );
 
 			});
@@ -206,13 +191,7 @@ $jsonArray = json_encode($resultArray);
 		$(".controlButton.play").show();
 		audioElement.pause();
 	}
-
 </script>
-
-
-
-
-
 
 <div id="nowPlayingBarContainer">
 	<div id="nowPlayingBar">
@@ -227,7 +206,7 @@ $jsonArray = json_encode($resultArray);
 					<span class="trackName">
 						<span></span>
 					</span>
-					<span class="artistName">
+					<span class="artistName" onclick="openPage('artist.php')">
 						<span></span>
 
 					</span>

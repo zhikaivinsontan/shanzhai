@@ -1,5 +1,5 @@
-<?php include("includes/header.php"); ?>
-
+ <?php //include("includes/header.php"); 
+ include("includes/includedFiles.php"); ?> 
 
 <?php
 if(isset($_GET['id'])) {
@@ -11,10 +11,10 @@ if(isset($_GET['id'])) {
 
 
 $album = new Album($con,$albumId);
-
 $artist = new Artist($con,$album->getArtist());
 
 ?>
+
 
 <div class="entityInfo">
 	
@@ -26,7 +26,7 @@ $artist = new Artist($con,$album->getArtist());
 		<h2><?php echo $album->getTitle(); ?></h2>
 		<p>By <?php echo $artist->getName();?></p>
 		<p><?php echo $album->getNumberOfSongs(); ?> songs</p>
-
+		
 	</div>
 
 </div>
@@ -43,8 +43,8 @@ $artist = new Artist($con,$album->getArtist());
 
 				echo "<li class='tracklistRow'>
 						<div class='trackCount'>
-							<img class='play' src='https://img.icons8.com/dotty/80/000000/play.png'>
-							<span class='trackNumber'>$i</span>
+							<img class='play' src='https://img.icons8.com/dotty/80/000000/play.png' onclick='setTrack(".$albumSong->getId().",tempPlaylist,true)'>
+							<span class='trackNumber'>".$i."</span>
 						</div>
 					
 						<div class='trackInfo'>
@@ -65,6 +65,14 @@ $artist = new Artist($con,$album->getArtist());
 				$i += 1;
 			}
 		?>
+
+		<script>
+	
+			var tempSongIds = '<?php echo json_encode($songIdArray)?>';
+			tempPlaylist = JSON.parse(tempSongIds);
+		</script>
+
+
 	</ul>
 </div>
 
@@ -72,4 +80,4 @@ $artist = new Artist($con,$album->getArtist());
 
 
 
-<?php include("includes/footer.php");?>
+<?php //include("includes/footer.php");?>

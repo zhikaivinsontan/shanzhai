@@ -4,21 +4,16 @@ var mouseDown = false;
 var currentIndex = 0;
 var repeat = false;
 var userLoggedIn;
-
+var currentSinger;
+var tempPlaylist = []
 
 function openPage(url) {
-
 	if(url.indexOf("?") == -1) {
 		url = url + "?";
 	}
-
-
 	var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
 	$('#mainContent').load(encodedUrl);
 }
-
-
-
 
 function formatTime(seconds) {
 	var time = Math.round(seconds);
@@ -64,7 +59,6 @@ function Audio() {
 
 
 	this.audio.addEventListener("timeupdate",function(){
-		// console.log(formatTime(audio.currentTime));
 		if(this.duration) {
 
 			updateTimeProgressBar(this);
@@ -92,7 +86,6 @@ function Audio() {
 
 	this.play = function() {
 
-console.log(currentIndex);
 		
 		this.audio.play();
 	}

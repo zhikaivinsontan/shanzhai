@@ -129,6 +129,7 @@ box-sizing:border-box;
 .controlButton.play img {
 	width:40px;
 	height:40px;
+	color:white;
 }
 
 .controlButton.pause img {
@@ -345,18 +346,28 @@ box-sizing:border-box;
 	margin-bottom:7px;
 }
 
+.searchContainer .searchInput {
+	
+}
 
+.artistInfo {
+	text-align: center;
+}
 
+.button {
+	color: #fff;
+	cursor:pointer;
+	border: 2px solide #fff;
+}
 
+.button.green {
+	background-color: #2ebd59;
+	border-color: #2ebd59;
+}
 
-
-
-
-
-
-
-
-
+.trackCount.play {
+	background-color: white;
+}
 
 
 
