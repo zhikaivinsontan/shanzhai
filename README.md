@@ -2,6 +2,6 @@
 shanzhai is a spotify-like clone that plays white noise to increase work efficiency.
 
 ## Things to work on
-Button alignment<br>
-Sign-in User Interface
+1. Button alignment<br>
+2. Sign-in User Interface
 
